@@ -1,0 +1,142 @@
+   /* Tablets (992px and below) */
+   @media (max-width: 992px) {
+
+       #lightBtn {
+           width: 260px;
+           height: 55px;
+           font-size: 17px;
+       }
+
+       .birthday-wall {
+           top: 15%;
+           width: 90%;
+       }
+
+       .birthday-title {
+           font-size: clamp(50px, 9vw, 90px);
+           text-align: center;
+           white-space: normal;
+       }
+
+       .moon-glow {
+           width: 280px;
+           height: 280px;
+           top: -90px;
+           right: -70px;
+       }
+
+       .fairy-lights {
+           top: 20px;
+       }
+   }
+
+
+   /* Mobile (768px and below) */
+   @media (max-width: 768px) {
+
+       body {
+           overflow-x: hidden;
+       }
+
+       .container {
+           width: 90%;
+           padding: 20px;
+       }
+
+       #lightBtn {
+           width: 100%;
+           max-width: 300px;
+           height: 52px;
+           font-size: 16px;
+       }
+
+       .subtitle {
+           font-size: 14px;
+           padding: 0 10px;
+       }
+
+       .birthday-wall {
+           top: 18%;
+           width: 95%;
+       }
+
+       .birthday-title {
+           font-size: clamp(40px, 11vw, 70px);
+           letter-spacing: 1px;
+           line-height: 1.2;
+           white-space: normal;
+           text-align: center;
+       }
+
+       .moon-glow {
+           width: 220px;
+           height: 220px;
+           top: -70px;
+           right: -60px;
+       }
+
+       .bulb {
+           width: 12px;
+           height: 18px;
+       }
+
+       .fly-balloon {
+           width: 45px;
+           height: 60px;
+       }
+
+       .fly-balloon .string {
+           height: 70px;
+       }
+
+       .shooting-star {
+           width: 120px;
+       }
+   }
+
+   /* Small Phones (480px and below) */
+   @media (max-width: 480px) {
+
+       #lightBtn {
+           height: 48px;
+           font-size: 15px;
+       }
+
+       .subtitle {
+           font-size: 13px;
+       }
+
+       .birthday-wall {
+           top: 20%;
+       }
+
+       .birthday-title {
+           font-size: clamp(32px, 12vw, 50px);
+       }
+
+       .bulb {
+           width: 10px;
+           height: 15px;
+       }
+
+       .fly-balloon {
+           width: 38px;
+           height: 52px;
+       }
+
+       .particle {
+           width: 5px;
+           height: 12px;
+       }
+
+       .moon-glow {
+           width: 170px;
+           height: 170px;
+           top: -50px;
+           right: -50px;
+       }
+
+       .shooting-star {
+           width: 90px;
+       }
+   }
