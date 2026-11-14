@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -15,7 +16,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #030303, #111111);
+    background:
+        radial-gradient(ellipse at 50% 55%, #30204f 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 90%, #54275f 0%, transparent 45%),
+        linear-gradient(180deg, #08091d, #17122f 65%, #100c26);
     position: relative;
 }
 
@@ -33,20 +37,20 @@ body {
     width: 300px;
     max-width: 80vw;
     height: 60px;
-    border: none;
     border-radius: 50px;
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    color: white;
-    background: #1f1f1f;
-    box-shadow: 0 0 10px rgba(255, 215, 64, .25), 0 0 25px rgba(255, 215, 64, .15);
+    background: linear-gradient(135deg, #30204f, #17122f);
+    border: 1px solid #ffe1aa88;
+    color: #ffe1aa;
+    box-shadow: 0 0 15px rgba(255,225,170,.15);
     transition: .3s;
 }
 
 #lightBtn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(255, 215, 64, .5), 0 0 40px rgba(255, 215, 64, .35);
+    box-shadow: 0 0 25px rgba(255,225,170,.35);
 }
 
 #lightBtn:active {
@@ -55,16 +59,25 @@ body {
 
 .subtitle {
     margin-top: 18px;
-    color: rgba(255, 255, 255, .55);
+    color: #d7cce9;
     font-size: 15px;
     text-align: center;
 }
 
 .stars {
-    position: absolute;
+    position: fixed;
     inset: 0;
-    background-image: radial-gradient(2px 2px at 10% 20%, white, transparent), radial-gradient(2px 2px at 25% 70%, white, transparent), radial-gradient(2px 2px at 40% 30%, white, transparent), radial-gradient(2px 2px at 60% 80%, white, transparent), radial-gradient(2px 2px at 75% 15%, white, transparent), radial-gradient(2px 2px at 85% 50%, white, transparent), radial-gradient(2px 2px at 90% 90%, white, transparent), radial-gradient(2px 2px at 15% 90%, white, transparent);
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, white, transparent),
+        radial-gradient(2px 2px at 25% 70%, white, transparent),
+        radial-gradient(2px 2px at 40% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 80%, white, transparent),
+        radial-gradient(2px 2px at 75% 15%, white, transparent),
+        radial-gradient(2px 2px at 85% 50%, white, transparent),
+        radial-gradient(2px 2px at 90% 90%, white, transparent);
     animation: twinkle 3s infinite alternate;
+    z-index: -2;
 }
 
 .dust {
@@ -76,6 +89,7 @@ body {
 }
 
 /* ---------------- Animations ---------------- */
+
 @keyframes fadeIn {
     to {
         opacity: 1;
@@ -103,6 +117,7 @@ body {
 }
 
 /* ================= PARTY ================= */
+
 .party {
     position: absolute;
     inset: 0;
@@ -116,7 +131,10 @@ body {
 }
 
 body.party-mode {
-    background: linear-gradient(160deg, #49306b 0%, #6f42c1 30%, #c05299 65%, #ffb6d9 100%);
+    background:
+        radial-gradient(ellipse at 50% 55%, #30204f 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 90%, #54275f 0%, transparent 45%),
+        linear-gradient(180deg, #08091d, #17122f 65%, #100c26);
     transition: 2s;
 }
 
@@ -141,71 +159,77 @@ body.party-mode {
     left: -5%;
     width: 110%;
     height: 70px;
-    border-top: 3px solid #4d4d4d;
+    border-top: 3px solid #6b5b79;
     border-radius: 50%;
     overflow: visible;
 }
 
 .wire path {
     fill: none;
-    stroke: #555;
+    stroke: #6b5b79;
     stroke-width: 3;
 }
+
+/* Fairy Light Bulbs */
 
 .bulb {
     position: absolute;
     width: 16px;
     height: 24px;
     border-radius: 50% 50% 45% 45% / 45% 45% 55% 55%;
-    background: #ffd84d;
     top: 15px;
     transform-origin: top;
     animation: swing 2s ease-in-out infinite;
-    box-shadow: 0 0 10px #ffd84d, 0 0 25px #ffd84d, 0 0 45px #ffd84d;
     opacity: 0;
     filter: brightness(.2);
 }
 
-.fairy-lights.show .bulb {
-    animation: turnOn .6s forwards, swing 2s ease-in-out infinite;
+.bulb:nth-child(2) {
+    background: #FFE1AA;
+    box-shadow: 0 0 12px #FFE1AA, 0 0 25px #FFE1AA, 0 0 40px rgba(255, 225, 170, .5);
 }
 
-.fairy-lights.show .bulb:nth-child(2) {
-    animation-delay: .1s;
+.bulb:nth-child(3) {
+    background: #D9BAFA;
+    box-shadow: 0 0 12px #D9BAFA, 0 0 25px #D9BAFA, 0 0 40px rgba(217, 186, 250, .5);
 }
 
-.fairy-lights.show .bulb:nth-child(3) {
-    animation-delay: .2s;
+.bulb:nth-child(4) {
+    background: #B995DF;
+    box-shadow: 0 0 12px #B995DF, 0 0 25px #B995DF, 0 0 40px rgba(185, 149, 223, .5);
 }
 
-.fairy-lights.show .bulb:nth-child(4) {
-    animation-delay: .3s;
+.bulb:nth-child(5) {
+    background: #FFFFFF;
+    box-shadow: 0 0 12px #FFFFFF, 0 0 25px #FFFFFF, 0 0 40px rgba(255, 255, 255, .4);
 }
 
-.fairy-lights.show .bulb:nth-child(5) {
-    animation-delay: .4s;
+.bulb:nth-child(6) {
+    background: #FFE1AA;
+    box-shadow: 0 0 12px #FFE1AA, 0 0 25px #FFE1AA, 0 0 40px rgba(255, 225, 170, .5);
 }
 
-.fairy-lights.show .bulb:nth-child(6) {
-    animation-delay: .5s;
+.bulb:nth-child(7) {
+    background: #D9BAFA;
+    box-shadow: 0 0 12px #D9BAFA, 0 0 25px #D9BAFA, 0 0 40px rgba(217, 186, 250, .5);
 }
 
-.fairy-lights.show .bulb:nth-child(7) {
-    animation-delay: .6s;
+.bulb:nth-child(8) {
+    background: #B995DF;
+    box-shadow: 0 0 12px #B995DF, 0 0 25px #B995DF, 0 0 40px rgba(185, 149, 223, .5);
 }
 
-.fairy-lights.show .bulb:nth-child(8) {
-    animation-delay: .7s;
+.bulb:nth-child(9) {
+    background: #FFE1AA;
+    box-shadow: 0 0 12px #FFE1AA, 0 0 25px #FFE1AA, 0 0 40px rgba(255, 225, 170, .5);
 }
 
-.fairy-lights.show .bulb:nth-child(9) {
-    animation-delay: .8s;
-}
+/* Bulb holders */
 
 .bulb::before {
     content: "";
     position: absolute;
-    background: #555;
+    background: #6b5b79;
     left: 50%;
     top: -9px;
     transform: translateX(-50%);
@@ -222,48 +246,46 @@ body.party-mode {
     left: 50%;
     top: -4px;
     transform: translateX(-50%);
-    background: #666;
+    background: #6b5b79;
     border-radius: 2px;
 }
 
-.bulb:nth-child(2) {
-    background: #FFD93D;
-    box-shadow: 0 0 18px #FFD93D;
+/* Turn on bulbs one by one */
+
+.fairy-lights.show .bulb {
+    animation: turnOn .6s forwards, swing 2s ease-in-out infinite;
 }
 
-.bulb:nth-child(3) {
-    background: #FF70A6;
-    box-shadow: 0 0 18px #FF70A6;
+.fairy-lights.show .bulb:nth-child(2) {
+    animation-delay: 0s, .6s;
 }
 
-.bulb:nth-child(4) {
-    background: #4CC9F0;
-    box-shadow: 0 0 18px #4CC9F0;
+.fairy-lights.show .bulb:nth-child(3) {
+    animation-delay: .1s, .7s;
 }
 
-.bulb:nth-child(5) {
-    background: #9D4EDD;
-    box-shadow: 0 0 18px #9D4EDD;
+.fairy-lights.show .bulb:nth-child(4) {
+    animation-delay: .2s, .8s;
 }
 
-.bulb:nth-child(6) {
-    background: #06D6A0;
-    box-shadow: 0 0 18px #06D6A0;
+.fairy-lights.show .bulb:nth-child(5) {
+    animation-delay: .3s, .9s;
 }
 
-.bulb:nth-child(7) {
-    background: #FF924C;
-    box-shadow: 0 0 18px #FF924C;
+.fairy-lights.show .bulb:nth-child(6) {
+    animation-delay: .4s, 1s;
 }
 
-.bulb:nth-child(8) {
-    background: #FFFFFF;
-    box-shadow: 0 0 18px white;
+.fairy-lights.show .bulb:nth-child(7) {
+    animation-delay: .5s, 1.1s;
 }
 
-.bulb:nth-child(9) {
-    background: #FF70A6;
-    box-shadow: 0 0 18px #FF70A6;
+.fairy-lights.show .bulb:nth-child(8) {
+    animation-delay: .6s, 1.2s;
+}
+
+.fairy-lights.show .bulb:nth-child(9) {
+    animation-delay: .7s, 1.3s;
 }
 
 @keyframes turnOn {
@@ -275,11 +297,11 @@ body.party-mode {
 
     30% {
         opacity: 1;
-        filter: brightness(3);
+        filter: brightness(2);
     }
 
     60% {
-        filter: brightness(.5);
+        filter: brightness(.7);
     }
 
     100% {
@@ -308,6 +330,7 @@ body.party-mode {
 }
 
 /* Balloons */
+
 .floating-balloons {
     position: absolute;
     inset: 0;
@@ -329,7 +352,6 @@ body.party-mode {
     animation: fly linear forwards, wobble 2.8s ease-in-out infinite;
 }
 
-/* Balloon shine */
 .fly-balloon::before {
     content: "";
     position: absolute;
@@ -344,7 +366,6 @@ body.party-mode {
     transform: rotate(18deg);
 }
 
-/* String */
 .fly-balloon .string {
     position: absolute;
     left: 50%;
@@ -414,6 +435,7 @@ body.party-mode {
 }
 
 /* Popping */
+
 @keyframes balloonPop {
     0% {
         transform: scale(1);
@@ -551,7 +573,16 @@ body.party-mode {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle, rgba(255, 255, 255, .95), rgba(255, 180, 230, .6), transparent 75%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 225, 170, .95),
+            rgba(217, 186, 250, .65),
+            rgba(84, 39, 95, .2),
+            transparent 75%
+        );
+
     opacity: 0;
     z-index: 999;
 }
@@ -582,14 +613,19 @@ body.party-mode {
     }
 }
 
+/* ================= BIRTHDAY TITLE ================= */
+
 .birthday-wall {
     position: absolute;
     top: 18%;
     left: 50%;
+    width: max-content;
+    max-width: 92%;
     transform: translateX(-50%) scale(.8);
     opacity: 0;
     transition: 1s ease;
     z-index: 20;
+    text-align: center;
 }
 
 .birthday-wall.show {
@@ -599,16 +635,16 @@ body.party-mode {
 
 .birthday-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(60px, 10vw, 120px);
+    font-size: clamp(65px, 10vw, 115px);
     font-weight: 400;
+    line-height: 1.05;
+    color: #ffe1aa;
+    text-shadow: 0 0 25px #d8a7ff55;
+
     white-space: nowrap;
-    color: #FFD6EA;
     background-size: 300% 300%;
     -webkit-background-clip: text;
-    /* -webkit-text-fill-color: transparent; */
     letter-spacing: 2px;
-    text-shadow: 0 0 5px rgba(255, 255, 255, .9), 0 0 12px rgba(255, 190, 240, .8), 0 0 25px rgba(215, 170, 255, .7), 3px 4px 8px rgba(0, 0, 0, .25);
-    animation: glow 2.8s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
@@ -646,16 +682,21 @@ body.party-mode {
     border-radius: 50%;
     top: -120px;
     right: -80px;
-    background: radial-gradient(circle, rgba(255, 255, 255, .18), rgba(255, 210, 255, .08), transparent 70%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(217, 186, 250, 0.22),
+            rgba(255, 225, 170, 0.12),
+            rgba(185, 149, 223, 0.06),
+            transparent 70%
+        );
     filter: blur(35px);
     animation: moonPulse 6s ease-in-out infinite;
     pointer-events: none;
 }
 
 @keyframes moonPulse {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
         opacity: .65;
     }
@@ -672,7 +713,7 @@ body.party-mode {
     color: #ffd3ea;
     pointer-events: none;
     animation: heartFloat 9s linear forwards;
-    text-shadow: 0 0 10px pink, 0 0 20px white;
+    text-shadow: 0 0 8px rgba(217, 186, 250, .35);
 }
 
 @keyframes heartFloat {
@@ -691,6 +732,8 @@ body.party-mode {
     }
 }
 
+/* Shooting Star */
+
 .shooting-star {
     position: absolute;
     width: 180px;
@@ -698,7 +741,7 @@ body.party-mode {
     left: -220px;
     top: -80px;
     border-radius: 50px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .4), white);
+    background: linear-gradient(90deg, transparent, rgba(217, 186, 250, .7), #FFE1AA);
     opacity: 0;
     transform: translate3d(0, 0, 0) rotate(35deg);
     will-change: transform, opacity;
@@ -715,8 +758,8 @@ body.party-mode {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: white;
-    box-shadow: 0 0 8px white, 0 0 16px #b7f8ff;
+    background: #FFE1AA;
+    box-shadow: 0 0 8px #FFE1AA, 0 0 16px #D9BAFA;
 }
 
 .shooting-star.show {
@@ -739,24 +782,42 @@ body.party-mode {
     }
 }
 
+/* ================= THEME SPEAKER ================= */
+
 .speaker {
     position: fixed;
     right: 22px;
     bottom: 22px;
+
     width: 95px;
     height: 145px;
+
     border-radius: 28px;
-    background: linear-gradient(180deg, #555, #232323);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, .35), 0 0 20px rgba(255, 170, 230, .25);
+
+    background: linear-gradient(
+        160deg,
+        #30204f,
+        #17122f 65%,
+        #09091e
+    );
+
+    border: 1px solid rgba(255, 225, 170, .5);
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, .35),
+        0 0 20px rgba(217, 186, 250, .12);
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+
     z-index: 999;
-    transition: .3s;
+
     opacity: 0;
     transform: translateY(40px);
     transition: .8s ease;
+
     pointer-events: none;
 }
 
@@ -771,9 +832,11 @@ body.party-mode {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
+
     width: 36px;
     height: 16px;
-    border: 4px solid #444;
+
+    border: 4px solid #d9bafa;
     border-bottom: none;
     border-radius: 30px 30px 0 0;
 }
@@ -787,25 +850,43 @@ body.party-mode {
 #musicBtn {
     width: 42px;
     height: 42px;
-    border: none;
+
+    border: 1px solid #ffe1aa;
     border-radius: 50%;
+
     cursor: pointer;
-    color: white;
+
+    background: #09091e;
+    color: #ffe1aa;
+
     font-size: 17px;
-    background: linear-gradient(135deg, #ff8dd1, #c2a8ff);
-    box-shadow: 0 0 15px rgba(255, 160, 220, .45);
+
+    box-shadow: 0 0 12px rgba(255, 225, 170, .15);
+
     transition: .3s;
 }
 
 #musicBtn:hover {
+    background: #ffe1aa;
+    color: #09091e;
+
     transform: scale(1.08);
+
+    box-shadow: 0 0 20px rgba(255, 225, 170, .3);
 }
 
 .speaker-grill {
     width: 65px;
     height: 65px;
+
     border-radius: 50%;
-    background: radial-gradient(#888 18%, transparent 20%) 0 0/8px 8px, #444;
+
+    background:
+        radial-gradient(#d9bafa 18%, transparent 20%) 0 0/8px 8px,
+        #17122f;
+
+    border: 1px solid rgba(217, 186, 250, .35);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -814,23 +895,30 @@ body.party-mode {
 .ring {
     width: 26px;
     height: 26px;
+
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, .3);
+
+    border: 3px solid rgba(255, 225, 170, .5);
 }
 
 .speaker-led {
     width: 8px;
     height: 8px;
+
     border-radius: 50%;
-    background: #ff5f8d;
-    box-shadow: 0 0 8px #ff5f8d, 0 0 18px #ff5f8d;
+
+    background: #ffe1aa;
+
+    box-shadow:
+        0 0 8px #ffe1aa,
+        0 0 18px #ffe1aa;
 }
 
 .speaker-grill span {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #777;
+    background: #d9bafa;
 }
 
 .speaker.playing {
@@ -862,12 +950,12 @@ body.party-mode {
 @keyframes ledBlink {
     from {
         opacity: .4;
-        box-shadow: 0 0 5px #ff5f8d;
+        box-shadow: 0 0 5px #ffe1aa;
     }
 
     to {
         opacity: 1;
-        box-shadow: 0 0 15px #ff5f8d, 0 0 35px #ff5f8d;
+        box-shadow: 0 0 15px #ffe1aa, 0 0 35px #ffe1aa;
     }
 }
 
@@ -891,10 +979,17 @@ body.party-mode {
 
 .note {
     position: fixed;
-    color: #fff;
-    font-size: 18px;
-    animation: noteFly 3s linear forwards;
+    z-index: 1000;
     pointer-events: none;
+
+    color: #FFE1AA;
+    text-shadow:
+        0 0 6px #FFE1AA,
+        0 0 14px #D9BAFA,
+        0 0 22px #B995DF;
+
+    font-size: 22px;
+    animation: noteFly 3s linear forwards;
 }
 
 @keyframes noteFly {
@@ -909,7 +1004,10 @@ body.party-mode {
     }
 }
 
-/* Cake */
+/* =========================================
+   BIRTHDAY CAKE — LANTERNS COLOR THEME
+========================================= */
+
 .cake-container {
     position: absolute;
     left: 50%;
@@ -927,7 +1025,6 @@ body.party-mode {
     animation: cakeRise 2.4s cubic-bezier(.18, .88, .28, 1) forwards;
 }
 
-
 .cake {
     position: relative;
     width: 260px;
@@ -935,36 +1032,26 @@ body.party-mode {
 }
 
 .cake-container.hide {
-
     animation: cakeDown 2s ease forwards;
-
 }
 
 @keyframes cakeDown {
-
     0% {
-
         bottom: 80px;
         opacity: 1;
         transform: translateX(-50%) scale(1);
-
     }
 
     20% {
-
         bottom: 90px;
         transform: translateX(-50%) scale(.98);
-
     }
 
     100% {
-
         bottom: -500px;
         opacity: 0;
         transform: translateX(-50%) scale(.8);
-
     }
-
 }
 
 .cake-shadow {
@@ -975,7 +1062,7 @@ body.party-mode {
     width: 210px;
     height: 28px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, .28);
+    background: rgba(0, 0, 0, .35);
     filter: blur(18px);
 }
 
@@ -991,8 +1078,17 @@ body.party-mode {
     width: 240px;
     height: 82px;
     border-radius: 20px;
-    background: linear-gradient(to bottom, #704021, #552d17, #3d1d0f);
-    box-shadow: inset 0 6px rgba(255, 255, 255, .12), inset 0 -10px rgba(0, 0, 0, .25);
+
+    background: linear-gradient(
+        to bottom,
+        #54275F,
+        #39204F,
+        #211638
+    );
+
+    box-shadow:
+        inset 0 6px rgba(255, 255, 255, .12),
+        inset 0 -10px rgba(0, 0, 0, .3);
 }
 
 .middle {
@@ -1000,8 +1096,17 @@ body.party-mode {
     width: 205px;
     height: 66px;
     border-radius: 18px;
-    background: linear-gradient(to bottom, #7d4723, #603117, #43210f);
-    box-shadow: inset 0 5px rgba(255, 255, 255, .1), inset 0 -8px rgba(0, 0, 0, .2);
+
+    background: linear-gradient(
+        to bottom,
+        #755095,
+        #49305F,
+        #30204F
+    );
+
+    box-shadow:
+        inset 0 5px rgba(255, 255, 255, .15),
+        inset 0 -8px rgba(0, 0, 0, .25);
 }
 
 .top {
@@ -1009,9 +1114,21 @@ body.party-mode {
     width: 155px;
     height: 56px;
     border-radius: 16px;
-    background: linear-gradient(to bottom, #8c5129, #663418, #47220f);
-    box-shadow: inset 0 4px rgba(255, 255, 255, .1), inset 0 -6px rgba(0, 0, 0, .2);
+
+    background: linear-gradient(
+        to bottom,
+        #A77BCB,
+        #8055A8,
+        #593477
+    );
+
+    box-shadow:
+        inset 0 4px rgba(255, 255, 255, .18),
+        inset 0 -6px rgba(0, 0, 0, .2),
+        0 0 12px rgba(217, 186, 250, .12);
 }
+
+/* Decorative cream stripes */
 
 .bottom::before,
 .middle::before {
@@ -1021,7 +1138,13 @@ body.party-mode {
     top: 14px;
     width: 100%;
     height: 8px;
-    background: #e4b88c;
+
+    background: linear-gradient(
+        90deg,
+        #FFE1AA,
+        #FFF3D8,
+        #FFE1AA
+    );
 }
 
 .cake::before {
@@ -1032,10 +1155,19 @@ body.party-mode {
     transform: translateX(-50%);
     width: 220px;
     height: 180px;
-    background: radial-gradient(rgba(255, 180, 220, .18), transparent 70%);
+
+    background: radial-gradient(
+        ellipse,
+        rgba(217, 186, 250, .22),
+        rgba(255, 225, 170, .12),
+        transparent 70%
+    );
+
     filter: blur(20px);
     z-index: -2;
 }
+
+/* Sprinkles */
 
 .sprinkles {
     position: absolute;
@@ -1052,107 +1184,118 @@ body.party-mode {
 .s1 {
     left: 20px;
     top: 14px;
-    background: #ff70a6;
+    background: #FFE1AA;
     transform: rotate(25deg);
 }
 
 .s2 {
     left: 55px;
     top: 18px;
-    background: #ffd93d;
+    background: #D9BAFA;
     transform: rotate(-30deg);
 }
 
 .s3 {
     left: 92px;
     top: 11px;
-    background: #4cc9f0;
+    background: #FFFFFF;
     transform: rotate(80deg);
 }
 
 .s4 {
     left: 120px;
     top: 24px;
-    background: #06d6a0;
+    background: #FFE1AA;
     transform: rotate(70deg);
 }
 
 .s5 {
     left: 42px;
     top: 34px;
-    background: white;
+    background: #FFFFFF;
     transform: rotate(40deg);
 }
 
 .s6 {
     left: 78px;
     top: 32px;
-    background: #ffb3d9;
+    background: #B995DF;
 }
 
 .s7 {
     left: 105px;
     top: 40px;
-    background: #ffd93d;
+    background: #FFE1AA;
 }
 
 .s8 {
     left: 15px;
     top: 36px;
-    background: #8ac6ff;
+    background: #D9BAFA;
 }
 
 .s9 {
     left: 60px;
     top: 8px;
-    background: #9d4edd;
+    background: #B995DF;
 }
 
 .s10 {
     left: 132px;
     top: 18px;
-    background: #ff924c;
+    background: #FFE1AA;
 }
 
 .s11 {
     left: 160px;
     top: 27px;
-    background: #cf06d6;
+    background: #D9BAFA;
     transform: rotate(40deg);
 }
 
 .s13 {
     left: 190px;
     top: 45px;
-    background: #ffd93d;
+    background: #FFE1AA;
 }
 
 .s14 {
     left: 145px;
     top: 40px;
-    background: #8ac6ff;
+    background: #D9BAFA;
     transform: rotate(120deg);
 }
 
 .s15 {
     left: 160px;
     top: 7px;
-    background: #9d4edd;
+    background: #B995DF;
 }
 
 .s16 {
     left: 182px;
     top: 28px;
-    background: #ff924c;
+    background: #FFE1AA;
 }
+
+/* Decorative pearls */
 
 .pearl {
     position: absolute;
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: white;
-    box-shadow: inset -1px -1px rgba(0, 0, 0, .15), 0 0 6px rgba(255, 255, 255, .6);
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        #FFFFFF,
+        #FFE1AA 65%,
+        #B995DF
+    );
+
+    box-shadow:
+        inset -1px -1px rgba(0, 0, 0, .15),
+        0 0 6px rgba(255, 225, 170, .5);
 }
 
 .p1 {
@@ -1175,6 +1318,8 @@ body.party-mode {
     top: 56px;
 }
 
+/* Ribbon */
+
 .ribbon {
     position: absolute;
     left: 50%;
@@ -1188,9 +1333,21 @@ body.party-mode {
     width: 100%;
     height: 12px;
     border-radius: 20px;
-    background: linear-gradient(to bottom, #ffb4dd, #ff74b7, #ff5ca8);
-    box-shadow: inset 0 2px rgba(255, 255, 255, .6), inset 0 -2px rgba(0, 0, 0, .15), 0 0 10px rgba(255, 120, 180, .5);
+
+    background: linear-gradient(
+        to bottom,
+        #FFF0CC,
+        #FFE1AA,
+        #D5A85F
+    );
+
+    box-shadow:
+        inset 0 2px rgba(255, 255, 255, .65),
+        inset 0 -2px rgba(0, 0, 0, .12),
+        0 0 12px rgba(255, 225, 170, .35);
 }
+
+/* Ribbon bow */
 
 .bow {
     position: absolute;
@@ -1206,9 +1363,18 @@ body.party-mode {
     position: absolute;
     width: 24px;
     height: 18px;
-    background: linear-gradient(#ffb9e3, #ff6db3);
+
+    background: linear-gradient(
+        135deg,
+        #FFE1AA,
+        #D9BAFA
+    );
+
     border-radius: 50% 50% 45% 45%;
-    box-shadow: inset 2px 2px rgba(255, 255, 255, .5);
+
+    box-shadow:
+        inset 2px 2px rgba(255, 255, 255, .5),
+        0 0 8px rgba(255, 225, 170, .2);
 }
 
 .loop.left {
@@ -1229,15 +1395,22 @@ body.party-mode {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: #ff4da0;
-    box-shadow: 0 0 10px rgba(255, 90, 170, .6);
+
+    background: #D9BAFA;
+
+    box-shadow: 0 0 10px rgba(217, 186, 250, .6);
 }
 
 .tail {
     position: absolute;
     width: 10px;
     height: 22px;
-    background: linear-gradient(#ff9fd6, #ff5ca8);
+
+    background: linear-gradient(
+        #FFE1AA,
+        #B995DF
+    );
+
     top: 14px;
 }
 
@@ -1267,6 +1440,8 @@ body.party-mode {
     }
 }
 
+/* Candles */
+
 .candles {
     position: absolute;
     left: 50%;
@@ -1287,10 +1462,20 @@ body.party-mode {
     font-size: 52px;
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #ffffff, #ffeaf5, #ffc9e3);
+
+    background: linear-gradient(
+        to bottom,
+        #FFFFFF,
+        #FFE1AA,
+        #D9BAFA
+    );
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, .25), 0 0 8px rgba(255, 255, 255, .6);
+
+    text-shadow:
+        0 2px 3px rgba(0, 0, 0, .25),
+        0 0 8px rgba(255, 225, 170, .5);
 }
 
 .wick {
@@ -1300,8 +1485,10 @@ body.party-mode {
     transform: translateX(-50%);
     width: 2px;
     height: 6px;
-    background: #4b321f;
+    background: #30204F;
 }
+
+/* Flames */
 
 .flame {
     position: absolute;
@@ -1310,45 +1497,42 @@ body.party-mode {
     transform: translateX(-50%);
     width: 12px;
     height: 18px;
-    background: linear-gradient(#fff7b2, #ffcb45, #ff7a00);
-    border-radius: 50% 50% 50% 50%/ 70% 70% 30% 30%;
-    box-shadow: 0 0 12px gold, 0 0 25px orange, 0 0 45px rgba(255, 170, 40, .5);
+
+    background: linear-gradient(
+        #FFFFFF,
+        #FFE1AA,
+        #D5A85F
+    );
+
+    border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+
+    box-shadow:
+        0 0 12px #FFE1AA,
+        0 0 25px rgba(255, 225, 170, .7),
+        0 0 45px rgba(217, 186, 250, .3);
+
     animation: flameMove .25s infinite alternate;
 }
 
 .flame.out {
-
     animation: blowOut .45s forwards;
-
 }
 
 @keyframes blowOut {
-
     0% {
-
-        transform:
-            translateX(-50%) rotate(0deg) scale(1);
-
+        transform: translateX(-50%) rotate(0deg) scale(1);
         opacity: 1;
-
     }
 
     50% {
-        transform:
-            translateX(-50%) rotate(15deg) scale(1);
-
+        transform: translateX(-50%) rotate(15deg) scale(1);
         opacity: 0.5;
     }
 
     100% {
-
-        transform:
-            translateX(-50%) rotate(25deg) scale(0);
-
+        transform: translateX(-50%) rotate(25deg) scale(0);
         opacity: 0;
-
     }
-
 }
 
 @keyframes flameMove {
@@ -1365,485 +1549,519 @@ body.party-mode {
     }
 }
 
-
-
+/* Stool */
 
 .stool {
-
     position: absolute;
-
     left: 50%;
-
     bottom: -95px;
-
     transform: translateX(-50%);
-
     width: 180px;
     height: 105px;
-
     z-index: -1;
-
 }
 
 .stool-top {
-
     position: absolute;
-
     left: 50%;
-
     transform: translateX(-50%);
-
     width: 180px;
     height: 22px;
-
     border-radius: 50px;
 
-    background: linear-gradient(to bottom,
-
-            #ffffff,
-
-            #f8f8f8,
-
-            #e5e5e5);
+    background: linear-gradient(
+        to bottom,
+        #D9BAFA,
+        #B995DF,
+        #755095
+    );
 
     box-shadow:
-
-        inset 0 3px 5px rgba(255, 255, 255, .9),
-
-        inset 0 -3px 8px rgba(0, 0, 0, .08),
-
-        0 8px 20px rgba(0, 0, 0, .18);
-
+        inset 0 3px 5px rgba(255, 255, 255, .4),
+        inset 0 -3px 8px rgba(0, 0, 0, .15),
+        0 8px 20px rgba(0, 0, 0, .25);
 }
 
-/* Legs */
-
 .leg {
-
     position: absolute;
-
     top: 18px;
-
     width: 10px;
     height: 75px;
-
     border-radius: 20px;
 
-    background: linear-gradient(to right,
-
-            #ffffff,
-
-            #ededed,
-
-            #d8d8d8);
+    background: linear-gradient(
+        to right,
+        #B995DF,
+        #755095,
+        #49305F
+    );
 
     box-shadow:
-
-        inset 2px 0 rgba(255, 255, 255, .8),
-
-        inset -2px 0 rgba(0, 0, 0, .08);
-
+        inset 2px 0 rgba(255, 255, 255, .25),
+        inset -2px 0 rgba(0, 0, 0, .15);
 }
 
 .l1 {
-
     left: 28px;
-
     transform: rotate(6deg);
-
 }
 
 .l2 {
-
     right: 28px;
-
     transform: rotate(-6deg);
-
 }
 
 .l3 {
-
     left: 60px;
-
 }
 
 .l4 {
-
     right: 60px;
-
 }
-
 
 .stool-shadow {
-
     position: absolute;
-
     left: 50%;
-
     bottom: -20px;
-
     transform: translateX(-50%);
-
     width: 170px;
     height: 26px;
-
     border-radius: 50%;
-
-    background: rgba(0, 0, 0, .25);
-
+    background: rgba(0, 0, 0, .3);
     filter: blur(18px);
-
 }
 
+/* Cake rise animation */
+
 @keyframes cakeRise {
-
     0% {
-
         bottom: -500px;
-
         opacity: 0;
-
-        transform:
-            translateX(-50%) scale(.8);
-
+        transform: translateX(-50%) scale(.8);
     }
 
     65% {
-
         bottom: 100px;
-
         opacity: 1;
-
-        transform:
-            translateX(-50%) scale(1.04);
-
+        transform: translateX(-50%) scale(1.04);
     }
 
     82% {
-
         bottom: 72px;
-
-        transform:
-            translateX(-50%) scale(.98);
-
+        transform: translateX(-50%) scale(.98);
     }
 
     100% {
-
         bottom: 80px;
-
         opacity: 1;
-
-        transform:
-            translateX(-50%) scale(1);
-
+        transform: translateX(-50%) scale(1);
     }
-
 }
 
+/* Ribbon bounce */
+
 .ribbon.bounce {
-
     animation: ribbonBounce .7s ease;
-
 }
 
 @keyframes ribbonBounce {
-
     0% {
-
         transform: translateX(-50%) scale(1);
-
     }
 
     40% {
-
         transform: translateX(-50%) scale(1.15);
-
     }
 
     70% {
-
         transform: translateX(-50%) scale(.95);
-
     }
 
     100% {
-
         transform: translateX(-50%) scale(1);
-
     }
-
 }
 
+/* Cake button */
+
 .cake-btn {
-
     position: absolute;
-
     left: 50%;
     top: -55px;
-
     transform: translateX(-50%) translateY(15px);
 
     opacity: 0;
-    /* Hide initially */
     pointer-events: none;
 
-    border: none;
-
+    border: 1px solid #FFE1AA;
     padding: 10px 24px;
     min-width: 190px;
     height: 42px;
-
     border-radius: 30px;
-
     cursor: pointer;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: inherit;
     font-size: 15px;
     font-weight: 500;
 
-    color: white;
+    background: rgba(9, 9, 30, 0.85);
+    color: #FFE1AA;
 
-    background: linear-gradient(135deg, #ff9fcf, #d9a8ff);
-
-    box-shadow: 0 8px 22px rgba(255, 120, 180, .25);
+    box-shadow: 0 0 12px rgba(255, 225, 170, 0.12);
 
     transition: .4s;
 }
 
-
-
 .cake-btn.show {
-
     opacity: 1;
-
     pointer-events: auto;
-
     transform: translateX(-50%) translateY(0);
-
 }
 
 .cake-btn:hover {
-
-    transform:
-        translateX(-50%) translateY(-3px);
-
-    box-shadow:
-        0 12px 28px rgba(255, 120, 180, .35);
-
+    transform: translateX(-50%) translateY(-3px);
+    background: #FFE1AA;
+    color: #09091E;
+    box-shadow: 0 0 25px rgba(255, 225, 170, .35);
 }
 
 .cake-btn:active {
-
-    transform:
-        translateX(-50%) scale(.97);
-
+    transform: translateX(-50%) scale(.97);
 }
 
+/* ================= WISH MESSAGE ================= */
 
 .wish-message {
-
     position: absolute;
-
     left: 50%;
+    top: -65px;
 
-    top: -52px;
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    padding: 12px 22px;
 
     transform: translateX(-50%) translateY(15px);
-    opacity: 0;
+
     text-align: center;
-    white-space: nowrap;
+    background: rgba(48, 32, 79, 0.8);
+    border: 1px solid rgba(217, 186, 250, 0.4);
+    border-radius: 18px;
 
-    color: white;
+    backdrop-filter: blur(12px);
 
-    transition: .8s;
-
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.8s ease;
 }
 
 .wish-message.show {
-
     opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
 
-    transform:
+.wish-message .wish-tag {
+    margin-bottom: 7px;
 
-        translateX(-50%) translateY(0);
-
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #D9BAFA;
 }
 
 .wish-message h2 {
     margin: 0;
 
-    font-family: "Great Vibes", cursive;
+    font-family: 'Great Vibes', cursive;
     font-size: 30px;
-    font-weight: 400;
-    letter-spacing: 2px;
+    font-weight: normal;
+    letter-spacing: 1px;
 
-    color: #fff;
-
-    text-shadow:
-        0 0 8px rgba(255, 255, 255, .9),
-        0 0 20px #ff9ee5,
-        0 0 35px #ff77d4;
+    color: #FFE1AA;
 }
 
+.wish-message p {
+    margin-top: 6px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+
+    color: #D7CCE9;
+}
+
+/* ================= GIFT IMAGE ================= */
 
 .gift-container {
-
     position: absolute;
-
     left: -220px;
     bottom: 30px;
 
-    z-index: 60;
-
     opacity: 0;
-
     pointer-events: auto;
     z-index: 9999;
-    cursor: pointer;
 
+    cursor: pointer;
+}
+
+.gift-image {
+    display: block;
+
+    width: 150px;
+    height: auto;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .3));
+
+    transition: transform .3s ease;
 }
 
 .gift-container.show {
-
     animation: giftPop 1.4s ease forwards;
-
 }
 
-.gift-box {
-
-    position: relative;
-
-    width: 130px;
-    height: 110px;
-
-}
-
-.box {
-
-    position: absolute;
-
-    bottom: 0;
-
-    width: 130px;
-    height: 85px;
-
-    background: #ff4d6d;
-
-    border-radius: 8px;
-
-}
-
-.lid {
-
-    position: absolute;
-
-    top: 0;
-
-    width: 140px;
-    left: -5px;
-
-    height: 28px;
-
-    background: #ff7aa2;
-
-    border-radius: 8px;
-
-}
-
-.gift-container .ribbon-v {
-
-    position: absolute;
-
-    left: 58px;
-
-    width: 14px;
-
-    height: 110px;
-
-    background: white;
-
-}
-
-.gift-container .ribbon-h {
-
-    position: absolute;
-
-    top: 28px;
-
-    width: 130px;
-
-    height: 14px;
-
-    background: white;
-
-}
-
-.gift-container .bow {
-
-    position: absolute;
-
-    top: -14px;
-
-    left: 42px;
-
-    width: 45px;
-    height: 22px;
-
-    border-radius: 50%;
-
-    border: 8px solid white;
-
-    border-bottom: none;
-
+.gift-container:hover .gift-image {
+    transform: translateY(-8px) scale(1.04);
 }
 
 @keyframes giftPop {
-
     0% {
-
         left: -220px;
         opacity: 0;
         transform: scale(.5) rotate(-15deg);
-
     }
 
     70% {
-
         left: 40px;
         opacity: 1;
         transform: scale(1.08);
-
     }
 
     100% {
-
         left: 30px;
         opacity: 1;
         transform: scale(1);
-
     }
-
 }
 
 .gift-box:hover {
-
     animation: giftBounce .5s infinite alternate;
-
 }
 
 @keyframes giftBounce {
-
     from {
-
         transform: translateY(0);
-
     }
 
     to {
-
         transform: translateY(-8px);
+    }
+}
 
+/* =========================================
+   BIRTHDAY TEXT ELEMENTS
+========================================= */
+
+/* Birthday tag */
+
+.birthday-tag {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 20px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+
+    color: #FFE1AA;
+    background: rgba(48, 32, 79, 0.65);
+    border: 1px solid rgba(217, 186, 250, 0.4);
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateY(15px);
+    transition: 1s ease;
+}
+
+.birthday-tag.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Birthday subtitle */
+
+.birthday-subtitle {
+    margin-top: 15px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+
+    color: #D7CCE9;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(217, 186, 250, 0.25);
+
+    opacity: 0;
+    transform: translateY(12px);
+    transition: 1s ease;
+}
+
+.birthday-subtitle.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Gift message */
+
+.gift-message {
+    position: absolute;
+    left: 165px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 270px;
+    padding: 18px;
+
+    box-sizing: border-box;
+    text-align: center;
+
+    background: rgba(48, 32, 79, 0.85);
+    border: 1px solid rgba(217, 186, 250, 0.4);
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: 1s ease;
+}
+
+.gift-container.show .gift-message {
+    opacity: 1;
+    pointer-events: none;
+    transition-delay: 0.8s;
+}
+
+.gift-message .gift-tag {
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #D9BAFA;
+}
+
+.gift-message h2 {
+    margin: 9px 0;
+
+    font-family: 'Great Vibes', cursive;
+    font-size: 29px;
+    font-weight: normal;
+
+    color: #FFE1AA;
+}
+
+.gift-message p {
+    margin-bottom: 12px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    line-height: 1.8;
+
+    color: #D7CCE9;
+}
+
+.gift-message span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #FFE1AA;
+}
+
+/* Footer */
+
+.birthday-footer {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: max-content;
+    text-align: center;
+
+    opacity: 0;
+    transition: 1s ease;
+    pointer-events: none;
+}
+
+.birthday-footer.show {
+    opacity: 1;
+}
+
+.birthday-footer h2 {
+    margin: 0;
+
+    font-family: 'Great Vibes', cursive;
+    font-size: 25px;
+    font-weight: normal;
+
+    color: #FFE1AA;
+}
+
+.birthday-footer p {
+    margin-top: 4px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    color: #D7CCE9;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 600px) {
+
+    .birthday-tag {
+        font-size: 9px;
+        letter-spacing: 2px;
+        padding: 7px 14px;
     }
 
+    .birthday-subtitle {
+        max-width: 290px;
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .wish-message {
+        width: calc(100vw - 40px);
+        box-sizing: border-box;
+        white-space: normal;
+    }
+
+    .wish-message h2 {
+        font-size: 25px;
+    }
+
+    .gift-message {
+        left: 50%;
+        top: auto;
+        bottom: 155px;
+        width: min(260px, calc(100vw - 40px));
+        box-sizing: border-box;
+        transform: translate(-50%, 10px);
+    }
+
+    .gift-container.show .gift-message {
+        transform: translate(-50%, 0);
+    }
+
+    .birthday-footer {
+        bottom: 10px;
+    }
 }
+

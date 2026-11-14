@@ -10,9 +10,9 @@ body {
     color: white;
     overflow-x: hidden;
     background:
-        radial-gradient(circle at 15% 15%, #8b55ad 0%, transparent 35%),
-        radial-gradient(circle at 85% 80%, #a64c91 0%, transparent 35%),
-        linear-gradient(145deg, #241536, #493064, #713d72);
+        radial-gradient(ellipse at 50% 55%, #30204f 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 90%, #54275f 0%, transparent 45%),
+        linear-gradient(180deg, #08091d, #17122f 65%, #100c26);
 }
 
 /* Background decorations */
@@ -82,7 +82,7 @@ body {
 .heading .eyebrow {
     font-size: 11px;
     letter-spacing: 5px;
-    color: #f5b8df;
+    color: #d9bafa;
     text-transform: uppercase;
 }
 
@@ -91,18 +91,18 @@ body {
     font-size: clamp(55px, 9vw, 90px);
     font-weight: 400;
     margin: 10px 0;
-    color: #ffe0f3;
-    text-shadow: 0 0 25px rgba(255, 174, 225, 0.5);
+    color: #ffe1aa;
+    text-shadow: 0 0 25px #d8a7ff55;
 }
 
 .heading p {
     font-size: 13px;
-    color: #e6d5ed;
+    color: #d7cce9;
     font-weight: 300;
 }
 
 .little-heart {
-    color: #ffacd9;
+    color: #ffe1aa;
     font-size: 20px;
     margin-top: 12px;
 }
@@ -216,18 +216,19 @@ body {
     font-family: 'Great Vibes', cursive;
     font-size: 48px;
     font-weight: 400;
-    color: #ffe0f3;
+    color: #ffe1aa;
+    text-shadow: 0 0 25px #d8a7ff55;
 }
 
 .bottom-message p {
     font-size: 12px;
-    color: #e8d7ee;
+    color: #d7cce9;
     margin-top: 8px;
     letter-spacing: 1px;
 }
 
 .bottom-message .heart {
-    color: #ffacd9;
+    color: #ffe1aa;
     font-size: 23px;
     margin-top: 12px;
 }
@@ -240,7 +241,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: 20;
-    background: rgba(16, 8, 27, 0.88);
+    background: rgba(8,9,29,.9);
     backdrop-filter: blur(12px);
     align-items: center;
     justify-content: center;
@@ -271,6 +272,7 @@ body {
     max-width: 850px;
     min-height: 440px;
     background: linear-gradient(145deg, #fffaff, #f8eaf5);
+    border: 1px solid #ffe1aa66;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
@@ -347,7 +349,7 @@ body {
 .memory-number {
     font-size: 10px;
     letter-spacing: 3px;
-    color: #bd78a8;
+    color: #9679b5;
     font-weight: 600;
 }
 
@@ -356,7 +358,7 @@ body {
     font-size: 48px;
     line-height: 1.2;
     font-weight: 400;
-    color: #81517e;
+    color: #80629e;
     margin: 17px 0 12px;
 }
 
@@ -367,7 +369,7 @@ body {
     gap: 8px;
     font-size: 10px;
     letter-spacing: 1px;
-    color: #a36f9a;
+    color: #9679b5;
 }
 
 .date-dot {
@@ -377,7 +379,7 @@ body {
 .memory-line {
     width: 55px;
     height: 2px;
-    background: #d99bc5;
+    background: #d9bafa;
     margin: 25px 0;
 }
 
@@ -393,7 +395,7 @@ body {
     margin-top: 30px;
     font-family: 'Great Vibes', cursive;
     font-size: 25px;
-    color: #bd78a8;
+    color: #9679b5;
 }
 
 /* MOBILE POPUP */

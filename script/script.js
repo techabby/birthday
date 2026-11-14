@@ -1,30 +1,16 @@
+
 const popSound = new Audio("./assets/sounds/pop.mp3");
 popSound.volume = 0.5;
 
 const btn = document.getElementById("lightBtn");
 const party = document.querySelector(".party");
 
+let partyStarted = false;
+
 function randomBalloon() {
     createBalloon();
     const nextTime = 1500 + Math.random() * 4500;
     setTimeout(randomBalloon, nextTime);
-}
-
-const birthdayText = document.getElementById("birthdayText");
-const message = "Happy Birthday";
-let index = 0;
-function writeBirthday() {
-    birthdayText.innerHTML = "";
-    index = 0;
-    function type() {
-        if (index < message.length) {
-            birthdayText.innerHTML +=
-                `<span class="letter">${message.charAt(index)}</span>`;
-            index++;
-            setTimeout(type, 180 + Math.random() * 130);
-        }
-    }
-    type();
 }
 
 const speaker = document.getElementById("speaker");
@@ -34,23 +20,26 @@ const musicBtn = document.getElementById("musicBtn");
 let playing = false;
 let noteInterval;
 
-musicBtn.addEventListener("click", () => {
+musicBtn.addEventListener("click", async () => {
 
     if (!playing) {
 
-        music.play();
+        try {
+            await music.play();
 
-        playing = true;
+            playing = true;
 
-        speaker.classList.add("playing");
+            speaker.classList.add("playing");
 
-        musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            musicBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
 
-        noteInterval = setInterval(createMusicNote, 600);
+            noteInterval = setInterval(createMusicNote, 600);
 
-    }
+        } catch (error) {
+            console.log("Music could not be played:", error);
+        }
 
-    else {
+    } else {
 
         music.pause();
 
@@ -91,42 +80,58 @@ function createMusicNote() {
     document.body.appendChild(note);
 
     setTimeout(() => {
-
         note.remove();
-
     }, 3000);
 
 }
 
 function createHeart() {
+
     const heart = document.createElement("div");
+
     heart.className = "heart";
+
     heart.innerHTML = "❤";
+
     heart.style.left = Math.random() * 100 + "vw";
+
     heart.style.fontSize = (12 + Math.random() * 12) + "px";
+
     document.body.appendChild(heart);
+
     setTimeout(() => {
         heart.remove();
     }, 9000);
+
 }
+
 function randomHeart() {
+
     createHeart();
+
     setTimeout(
         randomHeart,
         8000 + Math.random() * 7000
     );
+
 }
 
 btn.addEventListener("click", () => {
 
+    if (partyStarted) return;
+
+    partyStarted = true;
+    btn.disabled = true;
+
     const flash = document.querySelector(".light-flash");
+
     flash.classList.add("show");
+
+    document.body.classList.add("party-mode");
+
     setTimeout(() => {
         document.body.classList.add("party-mode");
     }, 500);
-
-
-    document.body.classList.add("party-mode");
 
     document.querySelector(".container").style.opacity = "0";
 
@@ -143,34 +148,38 @@ btn.addEventListener("click", () => {
 
         // Sprinkle Rain
         setTimeout(() => {
-
             sprinkleRain();
-
         }, 3800);
 
         // Happy Birthday
         setTimeout(() => {
 
-            document.querySelector(".birthday-wall").classList.add("show");
+            const birthdayWall = document.querySelector(".birthday-wall");
 
-            writeBirthday();
+            birthdayWall.classList.add("show");
+
+            setTimeout(() => {
+                document.querySelector(".birthday-tag").classList.add("show");
+            }, 400);
+
+            setTimeout(() => {
+                document.querySelector(".birthday-subtitle").classList.add("show");
+            }, 900);
 
         }, 1000);
 
         // Floating Balloons
         setTimeout(() => {
-
             randomBalloon();
-
         }, 2500);
 
     }, 1000);
+
     // Random Heart
     setTimeout(() => {
-
         randomHeart();
-
     }, 9000);
+
     // Speaker
     setTimeout(() => {
 
@@ -179,35 +188,29 @@ btn.addEventListener("click", () => {
             .classList.add("show");
 
     }, 7000);
+
     // Cake
     setTimeout(() => {
-
         showCake();
-
     }, 7000);
 
 });
 
-
 const colors = [
-    "#ff4d6d",
-    "#ffbe0b",
-    "#4cc9f0",
-    "#06d6a0",
-    "#ff70a6",
-    "#9d4edd",
-    "#ff924c",
-    "#8ac926"
+    "#ffe1aa",
+    "#d9bafa",
+    "#b995df",
+    "#ffffff",
+    "#a88acb",
+    "#f5d6a5"
 ];
-
 
 const balloonContainer =
     document.querySelector(".floating-balloons");
 
 function createBalloon() {
 
-    const balloon =
-        document.createElement("div");
+    const balloon = document.createElement("div");
 
     balloon.className = "fly-balloon";
 
@@ -226,65 +229,78 @@ function createBalloon() {
     balloon.style.height = size * 1.3 + "px";
 
     let x;
+
     const r = Math.random();
+
     if (r < 0.4) {
+
         // Left
         x = Math.random() * 18;
-    }
-    else if (r < 0.8) {
+
+    } else if (r < 0.8) {
+
         // Right
         x = 82 + Math.random() * 18;
-    }
-    else {
+
+    } else {
+
         // Center
         x = 25 + Math.random() * 50;
+
     }
 
     balloon.style.left = x + "vw";
+
     balloon.style.background =
         colors[Math.floor(Math.random() * colors.length)];
+
     knot.style.background = balloon.style.background;
 
     balloon.style.animationDuration =
         (10 + Math.random() * 8) + "s";
+
     balloon.style.setProperty(
         "--drift",
         (Math.random() * 180 - 90) + "px"
     );
+
     balloon.style.setProperty(
         "--rotate",
         (Math.random() * 24 - 12) + "deg"
     );
 
     balloonContainer.appendChild(balloon);
+
     balloon.addEventListener("click", () => {
         popBalloon(balloon);
     });
+
     balloon.addEventListener("touchstart", (e) => {
         e.preventDefault();
         popBalloon(balloon);
-    });
+    }, { passive: false });
+
     balloon.addEventListener("animationend", () => {
-
         balloon.remove();
-
     });
+
 }
 
 function popBalloon(balloon) {
+
+    if (!balloon.isConnected) return;
 
     const rect = balloon.getBoundingClientRect();
 
     balloon.remove();
 
-    const colors = [
-        "#ff4d6d",
-        "#ffbe0b",
-        "#06d6a0",
-        "#4cc9f0",
-        "#9d4edd",
+    const particleColors = [
+        "#ffe1aa",
+        "#d9bafa",
+        "#b995df",
         "#ffffff",
-        "#ff924c"
+        "#a88acb",
+        "#f5d6a5"
     ];
 
     for (let i = 0; i < 45; i++) {
@@ -298,12 +314,13 @@ function popBalloon(balloon) {
             p.classList.add("star");
 
             p.style.width = (4 + Math.random() * 5) + "px";
+
             p.style.height = (8 + Math.random() * 13) + "px";
 
         }
 
         p.style.background =
-            colors[Math.floor(Math.random() * colors.length)];
+            particleColors[Math.floor(Math.random() * particleColors.length)];
 
         p.style.left =
             rect.left + rect.width / 2 + "px";
@@ -320,14 +337,13 @@ function popBalloon(balloon) {
         const y = Math.sin(angle) * power;
 
         p.style.setProperty("--x", x + "px");
+
         p.style.setProperty("--y", y + "px");
 
         document.body.appendChild(p);
 
         p.addEventListener("animationend", () => {
-
             p.remove();
-
         });
 
     }
@@ -338,15 +354,13 @@ function sprinkleRain() {
 
     const container = document.querySelector(".sprinkle-rain");
 
-    const colors = [
-        "#FFD93D",
-        "#FF70A6",
-        "#9D4EDD",
-        "#4CC9F0",
-        "#06D6A0",
-        "#FFFFFF"
+    const sprinkleColors = [
+        "#ffe1aa",
+        "#d9bafa",
+        "#b995df",
+        "#ffffff",
+        "#a88acb"
     ];
-
 
     for (let i = 0; i < 180; i++) {
 
@@ -357,9 +371,11 @@ function sprinkleRain() {
             s.className = "sprinkle";
 
             s.style.left = Math.random() * 100 + "vw";
+
             s.style.top = (-80 - Math.random() * 150) + "px";
+
             s.style.background =
-                colors[Math.floor(Math.random() * colors.length)];
+                sprinkleColors[Math.floor(Math.random() * sprinkleColors.length)];
 
             s.style.animationDelay =
                 Math.random() * 1.2 + "s";
@@ -374,12 +390,11 @@ function sprinkleRain() {
                 "--drift",
                 (Math.random() * 120 - 60) + "px"
             );
+
             container.appendChild(s);
 
             s.addEventListener("animationend", () => {
-
                 s.remove();
-
             });
 
         }, Math.random() * 1200);
@@ -403,16 +418,21 @@ function shootingStar() {
     star.classList.add("show");
 
 }
+
 function randomShootingStar() {
+
     shootingStar();
+
     setTimeout(
         randomShootingStar,
         15000 + Math.random() * 20000
     );
+
 }
 
 randomShootingStar();
 
+// ================= CAKE =================
 
 const cake = document.querySelector(".cake-container");
 
@@ -425,44 +445,33 @@ const cutBtn = document.querySelector(".cut-btn");
 const wish = document.querySelector(".wish-message");
 
 const flames = document.querySelectorAll(".flame");
+
 const gift = document.querySelector(".gift-container");
+
 function showCake() {
 
     cake.classList.add("show");
 
     setTimeout(() => {
-
         ribbon.classList.add("bounce");
-
     }, 2200);
 
     setTimeout(() => {
-
         cakeBtn.classList.add("show");
-
     }, 2800);
-
-
 
 }
 
 cakeBtn.addEventListener("click", () => {
 
-
     cakeBtn.classList.remove("show");
 
-
     flames.forEach(flame => {
-
         flame.classList.add("out");
-
     });
 
-
     setTimeout(() => {
-
         wish.classList.add("show");
-
     }, 1000);
 
     setTimeout(() => {
@@ -472,16 +481,18 @@ cakeBtn.addEventListener("click", () => {
     setTimeout(() => {
         cake.classList.add("hide");
     }, 5500);
+
     setTimeout(() => {
 
         gift.classList.add("show");
 
     }, 7000);
-});
 
+});
 
 gift.addEventListener("click", () => {
 
     window.location.assign("gifts.html");
 
 });
+
