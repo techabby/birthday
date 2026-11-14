@@ -466,4 +466,33 @@
         bottom: 8px;
     }
 }
+/* MOBILE BACKGROUND FIX */
+@media screen and (max-width: 600px) {
 
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        background: #09091E !important;
+        background-color: #09091E !important;
+    }
+
+    body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        background-image:
+            radial-gradient(
+                ellipse at 50% 20%,
+                #30204F 0%,
+                #17122F 45%,
+                #09091E 100%
+            ) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .party {
+        background: transparent !important;
+    }
+}
