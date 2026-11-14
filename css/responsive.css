@@ -1,142 +1,469 @@
-   /* Tablets (992px and below) */
-   @media (max-width: 992px) {
 
-       #lightBtn {
-           width: 260px;
-           height: 55px;
-           font-size: 17px;
-       }
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+   Android + iPhone (including iPhone 11)
+========================================= */
 
-       .birthday-wall {
-           top: 15%;
-           width: 90%;
-       }
+@media screen and (max-width: 600px) {
 
-       .birthday-title {
-           font-size: clamp(50px, 9vw, 90px);
-           text-align: center;
-           white-space: normal;
-       }
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        min-height: 100dvh;
+        overflow: hidden;
+    }
 
-       .moon-glow {
-           width: 280px;
-           height: 280px;
-           top: -90px;
-           right: -70px;
-       }
+    body {
+        height: 100dvh;
+        min-height: 100svh;
+    }
 
-       .fairy-lights {
-           top: 20px;
-       }
-   }
+    .party {
+        position: fixed;
+        inset: 0;
+        height: 100%;
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    /* Initial screen */
+
+    #lightBtn {
+        width: min(280px, 82vw);
+        height: 54px;
+        font-size: 15px;
+    }
+
+    /* Fairy lights */
+
+    .fairy-lights {
+        top: max(20px, env(safe-area-inset-top));
+        height: 65px;
+    }
+
+    .wire {
+        width: 120%;
+        left: -10%;
+    }
+
+    .bulb {
+        width: 12px;
+        height: 19px;
+    }
+
+    /* Birthday heading */
+
+    .birthday-wall {
+        top: 17%;
+        width: 94%;
+        max-width: 94%;
+        padding: 0 5px;
+    }
+
+    .birthday-title {
+        font-size: clamp(48px, 13vw, 68px);
+        letter-spacing: 0;
+        white-space: nowrap;
+    }
+
+    .birthday-tag {
+        font-size: 8px;
+        letter-spacing: 1.8px;
+        padding: 7px 12px;
+        margin-bottom: 10px;
+    }
+
+    .birthday-subtitle {
+        max-width: 290px;
+        margin: 10px auto 0;
+        font-size: 11px;
+        line-height: 1.7;
+        letter-spacing: .3px;
+    }
+
+    /* Speaker */
+
+    .speaker {
+        width: 62px;
+        height: 95px;
+        right: max(12px, env(safe-area-inset-right));
+        bottom: max(12px, env(safe-area-inset-bottom));
+        border-radius: 19px;
+    }
+
+    .speaker-strap {
+        width: 25px;
+        height: 12px;
+        top: -9px;
+        border-width: 3px;
+    }
+
+    #musicBtn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .speaker-grill {
+        width: 43px;
+        height: 43px;
+        background-size: 7px 7px;
+    }
+
+    .ring {
+        width: 19px;
+        height: 19px;
+        border-width: 2px;
+    }
+
+    .speaker-led {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* Cake */
+
+    .cake-container {
+        left: 50%;
+        bottom: 100px;
+        transform: translateX(-50%) scale(.68);
+        transform-origin: bottom center;
+    }
+
+    .cake-container.show {
+        animation: cakeRiseMobile 2.4s cubic-bezier(.18, .88, .28, 1) forwards;
+    }
+
+    @keyframes cakeRiseMobile {
+        0% {
+            bottom: -400px;
+            opacity: 0;
+            transform: translateX(-50%) scale(.55);
+        }
+
+        65% {
+            bottom: 120px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.72);
+        }
+
+        82% {
+            bottom: 95px;
+            transform: translateX(-50%) scale(.66);
+        }
+
+        100% {
+            bottom: 100px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.68);
+        }
+    }
+
+    .cake-container.hide {
+        animation: cakeDownMobile 2s ease forwards;
+    }
+
+    @keyframes cakeDownMobile {
+        from {
+            bottom: 100px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.68);
+        }
+
+        to {
+            bottom: -400px;
+            opacity: 0;
+            transform: translateX(-50%) scale(.5);
+        }
+    }
+
+    /* Cake button */
+
+    .cake-btn {
+        top: -55px;
+        min-width: 170px;
+        width: max-content;
+        max-width: 85vw;
+        height: 40px;
+        padding: 8px 18px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* Wish text */
+
+    .wish-message {
+        top: -55px;
+        left: 50%;
+        width: max-content;
+        max-width: 85vw;
+        padding: 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    .wish-message.show {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .wish-message .wish-tag,
+    .wish-message p {
+        display: none;
+    }
+
+    .wish-message h2 {
+        font-size: 29px;
+        white-space: nowrap;
+    }
+
+    /* Gift */
+
+    .gift-container {
+        left: 15px;
+        bottom: max(15px, env(safe-area-inset-bottom));
+    }
+
+    .gift-image {
+        width: 105px;
+    }
+
+    .gift-container.show {
+        animation: giftPopMobile 1.4s ease forwards;
+    }
+
+    @keyframes giftPopMobile {
+        0% {
+            left: -150px;
+            opacity: 0;
+            transform: scale(.5) rotate(-15deg);
+        }
+
+        70% {
+            left: 20px;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        100% {
+            left: 15px;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .gift-message {
+        left: 50%;
+        top: auto;
+        bottom: 115px;
+        width: min(245px, calc(100vw - 35px));
+        padding: 13px;
+        transform: translate(-50%, 10px);
+    }
+
+    .gift-container.show .gift-message {
+        transform: translate(-50%, 0);
+    }
+
+    .gift-message h2 {
+        font-size: 25px;
+    }
+
+    .gift-message p {
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    /* Balloons */
+
+    .fly-balloon {
+        width: 42px;
+        height: 58px;
+    }
+
+    /* Shooting star */
+
+    .shooting-star {
+        width: 120px;
+    }
+
+    /* Prevent accidental horizontal scrolling */
+
+    .birthday-wall,
+    .gift-container,
+    .cake-container {
+        max-width: 100vw;
+    }
+}
 
 
-   /* Mobile (768px and below) */
-   @media (max-width: 768px) {
+/* =========================================
+   SMALLER PHONES
+   Android compact screens and iPhone SE
+========================================= */
 
-       body {
-           overflow-x: hidden;
-       }
+@media screen and (max-width: 380px) {
 
-       .container {
-           width: 90%;
-           padding: 20px;
-       }
+    .birthday-wall {
+        top: 15%;
+    }
 
-       #lightBtn {
-           width: 100%;
-           max-width: 300px;
-           height: 52px;
-           font-size: 16px;
-       }
+    .birthday-title {
+        font-size: 48px;
+    }
 
-       .subtitle {
-           font-size: 14px;
-           padding: 0 10px;
-       }
+    .birthday-tag {
+        font-size: 7px;
+        letter-spacing: 1.3px;
+    }
 
-       .birthday-wall {
-           top: 18%;
-           width: 95%;
-       }
+    .birthday-subtitle {
+        max-width: 255px;
+        font-size: 10px;
+    }
 
-       .birthday-title {
-           font-size: clamp(40px, 11vw, 70px);
-           letter-spacing: 1px;
-           line-height: 1.2;
-           white-space: normal;
-           text-align: center;
-       }
+    .cake-container.show {
+        animation: cakeRiseSmallMobile 2.4s cubic-bezier(.18, .88, .28, 1) forwards;
+    }
 
-       .moon-glow {
-           width: 220px;
-           height: 220px;
-           top: -70px;
-           right: -60px;
-       }
+    @keyframes cakeRiseSmallMobile {
+        0% {
+            bottom: -400px;
+            opacity: 0;
+            transform: translateX(-50%) scale(.48);
+        }
 
-       .bulb {
-           width: 12px;
-           height: 18px;
-       }
+        65% {
+            bottom: 105px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.62);
+        }
 
-       .fly-balloon {
-           width: 45px;
-           height: 60px;
-       }
+        82% {
+            bottom: 85px;
+            transform: translateX(-50%) scale(.57);
+        }
 
-       .fly-balloon .string {
-           height: 70px;
-       }
+        100% {
+            bottom: 90px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.58);
+        }
+    }
 
-       .shooting-star {
-           width: 120px;
-       }
-   }
+    .cake-container {
+        bottom: 90px;
+    }
 
-   /* Small Phones (480px and below) */
-   @media (max-width: 480px) {
+    .cake-container.hide {
+        animation: cakeDownSmallMobile 2s ease forwards;
+    }
 
-       #lightBtn {
-           height: 48px;
-           font-size: 15px;
-       }
+    @keyframes cakeDownSmallMobile {
+        from {
+            bottom: 90px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.58);
+        }
 
-       .subtitle {
-           font-size: 13px;
-       }
+        to {
+            bottom: -400px;
+            opacity: 0;
+            transform: translateX(-50%) scale(.45);
+        }
+    }
 
-       .birthday-wall {
-           top: 20%;
-       }
+    .speaker {
+        width: 55px;
+        height: 85px;
+    }
 
-       .birthday-title {
-           font-size: clamp(32px, 12vw, 50px);
-       }
+    .gift-image {
+        width: 90px;
+    }
 
-       .bulb {
-           width: 10px;
-           height: 15px;
-       }
+    .gift-message {
+        bottom: 100px;
+    }
+}
 
-       .fly-balloon {
-           width: 38px;
-           height: 52px;
-       }
 
-       .particle {
-           width: 5px;
-           height: 12px;
-       }
+/* =========================================
+   LANDSCAPE PHONE MODE
+========================================= */
 
-       .moon-glow {
-           width: 170px;
-           height: 170px;
-           top: -50px;
-           right: -50px;
-       }
+@media screen and (max-height: 500px) and (orientation: landscape) {
 
-       .shooting-star {
-           width: 90px;
-       }
-   }
+    .birthday-wall {
+        top: 12%;
+    }
+
+    .birthday-tag {
+        margin-bottom: 3px;
+        padding: 4px 10px;
+    }
+
+    .birthday-title {
+        font-size: 48px;
+    }
+
+    .birthday-subtitle {
+        margin-top: 3px;
+        font-size: 10px;
+    }
+
+    .cake-container.show {
+        animation: cakeRiseLandscape 2.4s ease forwards;
+    }
+
+    @keyframes cakeRiseLandscape {
+        0% {
+            bottom: -350px;
+            opacity: 0;
+            transform: translateX(-50%) scale(.4);
+        }
+
+        100% {
+            bottom: 65px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.48);
+        }
+    }
+
+    .cake-container.hide {
+        animation: cakeDownLandscape 2s ease forwards;
+    }
+
+    @keyframes cakeDownLandscape {
+        from {
+            bottom: 65px;
+            opacity: 1;
+            transform: translateX(-50%) scale(.48);
+        }
+
+        to {
+            bottom: -350px;
+            opacity: 0;
+            transform: translateX(-50%) scale(.4);
+        }
+    }
+
+    .speaker {
+        width: 52px;
+        height: 75px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .gift-image {
+        width: 75px;
+    }
+
+    .gift-container {
+        bottom: 8px;
+    }
+}
+
