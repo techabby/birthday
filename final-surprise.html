@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>One Last Thing... ♡</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap"
+            rel="stylesheet">
+
+        <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background: #09091d;
+}
+
+.sky {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 20px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 45%,
+            rgba(126,74,151,.42),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 15% 90%,
+            rgba(194,83,153,.2),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #09091d,
+            #17102c 65%,
+            #0b0b20
+        );
+}
+
+/* STARS */
+
+#stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 7px white;
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+
+    from {
+        opacity: .2;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+/* MOON */
+
+.moon {
+    position: absolute;
+    top: 8%;
+    right: 12%;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+    background: #fff0cc;
+
+    box-shadow:
+        0 0 30px #ffe8ba,
+        0 0 90px rgba(255,222,170,.25);
+
+    opacity: .85;
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: -9px;
+    left: 20px;
+    border-radius: 50%;
+    background: #111027;
+}
+
+/* MAIN CONTENT */
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: min(680px, 100%);
+    text-align: center;
+    padding: 45px 28px;
+
+    opacity: 0;
+    transform: translateY(18px);
+
+    animation: reveal 1.6s ease 1s forwards;
+}
+
+@keyframes reveal {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.kicker {
+    color: #d9b8f4;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+/* GLOWING HEART */
+
+.heart-wrap {
+    width: 110px;
+    height: 100px;
+    margin: 0 auto 25px;
+    position: relative;
+
+    animation: heartPulse 2.2s ease-in-out infinite;
+
+    filter: drop-shadow(
+        0 0 15px rgba(255,143,195,.75)
+    );
+}
+
+.heart {
+    position: absolute;
+    top: 17px;
+    left: 30px;
+    width: 52px;
+    height: 52px;
+
+    background: linear-gradient(
+        145deg,
+        #ffe1b5,
+        #ff8dbd 65%,
+        #d87bcb
+    );
+
+    transform: rotate(-45deg);
+    border-radius: 8px 0 8px 0;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: inherit;
+}
+
+.heart::before {
+    top: -26px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 26px;
+}
+
+@keyframes heartPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.09);
+    }
+
+}
+
+/* TEXT */
+
+h1 {
+    color: #ffe1ef;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(58px, 10vw, 92px);
+    font-weight: 400;
+    line-height: 1.1;
+    text-shadow: 0 0 22px rgba(255,153,205,.55);
+    margin-bottom: 17px;
+}
+
+.message {
+    max-width: 540px;
+    margin: 0 auto;
+    color: rgba(255,245,251,.86);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2.15;
+}
+
+.message .highlight {
+    display: block;
+    margin: 25px 0;
+    color: #ffe0ac;
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(28px, 5vw, 39px);
+    line-height: 1.5;
+}
+
+.signature {
+    margin-top: 27px;
+    color: #f5c9e4;
+    font-family: 'Great Vibes', cursive;
+    font-size: 34px;
+}
+
+/* BACK BUTTON */
+
+.back {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 12px 24px;
+    border: 1px solid rgba(255,224,242,.45);
+    border-radius: 30px;
+    color: #ffe4f3;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    transition: .3s;
+}
+
+.back:hover {
+    background: rgba(255,255,255,.1);
+    transform: translateY(-3px);
+}
+
+/* LOCKED MESSAGE */
+
+.locked {
+    position: relative;
+    z-index: 3;
+    width: min(500px, 100%);
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 22px;
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(12px);
+}
+
+.locked[hidden],
+#finalContent[hidden] {
+    display: none !important;
+}
+
+.locked h2 {
+    color: #ffe1ef;
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.locked p {
+    color: #e8d9ed;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+
+    .moon {
+        width: 55px;
+        height: 55px;
+        right: 8%;
+        top: 4%;
+    }
+
+    .moon::after {
+        width: 52px;
+        height: 52px;
+        left: 15px;
+        top: -7px;
+    }
+
+    .content {
+        padding: 35px 10px;
+    }
+
+    .message {
+        font-size: 12px;
+    }
+
+}
+
+</style>
+
+    </head>
+
+    <body>
+
+        <div class="sky">
+
+            <div id="stars"></div>
+
+            <div class="moon"></div>
+
+            <!-- LOCKED MESSAGE -->
+
+            <div class="locked" id="lockedMessage" hidden>
+
+                <h2>Not just yet...</h2>
+
+                <p>
+                    There are still little surprises waiting for you.
+                    Explore all four gifts first, then come back for this one. ♡
+                </p>
+
+                <a class="back" href="gifts.html">
+                    BACK TO YOUR GIFTS
+                </a>
+
+            </div>
+
+            <!-- FINAL SURPRISE -->
+
+            <main class="content" id="finalContent">
+
+                <div class="kicker">
+                    A LITTLE SOMETHING I SAVED FOR LAST
+                </div>
+
+                <div class="heart-wrap">
+                    <div class="heart"></div>
+                </div>
+
+                <h1>One Last Thing...</h1>
+
+                <div class="message">
+
+                    If you've made it this far, then you've opened
+                    every little gift I made for you.
+
+                    <span class="highlight">
+                        But there is one thing I hope you never forget.
+                    </span>
+
+                    You deserve to feel loved, appreciated, and celebrated
+                    — not just on your birthday, but on ordinary days too.
+
+                    I hope this new year of your life brings you beautiful
+                    surprises, peaceful moments, brave beginnings, and
+                    all the happiness your heart can hold.
+
+                    <span class="highlight">
+                        "If I could give you one thing in this world,
+                        it would be the ability to see yourself through my
+                        eyes."
+                    </span>
+
+                    Because then, even for a moment, you would understand
+                    just how special you are.
+
+                    Thank you for being you. And thank you for giving me
+                    a reason to make something this little, and this full of
+                    love.
+
+                </div>
+
+                <div class="signature">
+                    Happy Birthday ♡
+                </div>
+
+                <a class="back" href="gifts.html">
+                    BACK TO YOUR LITTLE WORLD
+                </a>
+
+            </main>
+
+        </div>
+
+        <!-- TRACKING SCRIPT -->
+
+        <script src="gift-progress.js"></script>
+
+        <!-- CREATE STARS -->
+
+        <script>
+
+const starField = document.getElementById("stars");
+
+for (let i = 0; i < 115; i++) {
+
+    const star = document.createElement("span");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    starField.appendChild(star);
+
+}
+
+</script>
+
+    </body>
+</html>
